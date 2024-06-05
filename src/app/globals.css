@@ -2,32 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer components {
+  .nav-btn {
+    @apply font-semibold py-2 px-4 rounded border;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  @apply block w-full px-3 py-2 border rounded shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-600;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+form label {
+  @apply block text-sm font-semibold text-gray-600 mt-4 mb-1;
+}
+
+.ad-label {
+  @apply block text-sm font-semibold tracking-widest uppercase text-gray-600 mt-4 mb-1;
 }
