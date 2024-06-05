@@ -13,7 +13,11 @@ type Props = {
 export function Header({ session }: Props) {
   return (
     <header className="flex items-center justify-between border-b p-4">
-      <Link href="/" className="text-blue-600 font-bold text-2xl">
+      <Link
+        href="/"
+        target="_parent"
+        className="text-blue-600 font-bold text-2xl"
+      >
         Bazaar
       </Link>
 

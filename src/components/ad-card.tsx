@@ -13,7 +13,7 @@ export function AdCard({ ad }: { ad: Ad }) {
       {ad.images.length > 0 && (
         <UploadThumbnail
           file={ad.images[0]}
-          className="rounded-md overflow-hidden"
+          className="rounded-md overflow-hidden border"
         />
       )}
 

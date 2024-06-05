@@ -22,3 +22,15 @@ form label {
 .ad-label {
   @apply block text-sm font-semibold tracking-widest uppercase text-gray-600 mt-4 mb-1;
 }
+
+label.radio-btn {
+  @apply flex items-center has-[:checked]:bg-blue-100 rounded-md p-3 gap-2 my-0 cursor-pointer;
+}
+
+label.radio-btn span.icon {
+  @apply size-5 mr-2 flex items-center justify-center text-gray-500;
+}
+
+label.radio-btn {
+  @apply normal-case;
+}

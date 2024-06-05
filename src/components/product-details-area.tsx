@@ -1,3 +1,5 @@
+import { categories } from "@/constants";
+
 export function ProductDetailsArea() {
   return (
     <>
