@@ -1,6 +1,10 @@
 import { categories } from "@/constants";
 
-export function ProductDetailsArea() {
+type Props = {
+  defaultValues: FieldTypes;
+};
+
+export function ProductDetailsArea({ defaultValues }: Props) {
   return (
     <>
       <label htmlFor="title">Title</label>
@@ -8,6 +12,7 @@ export function ProductDetailsArea() {
         type="text"
         id="title"
         name="title"
+        defaultValue={defaultValues.title}
         placeholder="Enter the title of your product"
       />
 
@@ -15,6 +20,7 @@ export function ProductDetailsArea() {
       <textarea
         id="description"
         name="description"
+        defaultValue={defaultValues.description}
         placeholder="Enter the description of your product"
       />
 
@@ -23,6 +29,7 @@ export function ProductDetailsArea() {
         type="number"
         id="price"
         name="price"
+        defaultValue={defaultValues.price}
         placeholder="Enter the price of your product"
       />
 
@@ -30,7 +37,7 @@ export function ProductDetailsArea() {
       <select
         name="category"
         id="category"
-        defaultValue="selectCat"
+        defaultValue={defaultValues.category || "selectCat"}
         className="focus:ring-0"
       >
         <option value="selectCat" disabled>
@@ -48,6 +55,7 @@ export function ProductDetailsArea() {
       <textarea
         id="contact"
         name="contact"
+        defaultValue={defaultValues.contact}
         placeholder="Enter your contact information"
       />
     </>

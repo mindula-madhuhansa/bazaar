@@ -20,15 +20,12 @@ export function ImageUploadArea({ files, setFiles }: Props) {
         Add Photos of your Product
       </h2>
 
-      {files.length > 0 ? (
-        <div className="flex flex-wrap w-full gap-2 mt-4">
-          {files.map((file) => (
-            <UploadThumbnail key={file.fileId} file={file} />
-          ))}
-        </div>
-      ) : (
-        <ImageIcon className="size-24 text-gray-400" />
-      )}
+      <ImageIcon className="size-24 text-gray-400" />
+      <div className="flex flex-wrap w-full gap-2 mt-4">
+        {files.map((file) => (
+          <UploadThumbnail key={file.fileId} file={file} />
+        ))}
+      </div>
 
       <Uploader
         ref={uploaderRef}
