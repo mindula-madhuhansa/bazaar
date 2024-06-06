@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { Ad } from "@/models/Ad";
+import { formatCurrency } from "@/utils/formayCurrency";
 import { UploadThumbnail } from "@/components/upload-thumbnail";
 
 export function AdCard({ ad }: { ad: Ad }) {
@@ -18,7 +19,9 @@ export function AdCard({ ad }: { ad: Ad }) {
       )}
 
       <div className="flex flex-col gap-y-1 mt-2">
-        <p className="font-semibold text-gray-700">$ {ad.price}</p>
+        <p className="font-semibold text-gray-700">
+          ${formatCurrency(ad.price)}
+        </p>
         <h3 className="text-sm font-medium line-clamp-2">{ad.title}</h3>
       </div>
     </Link>

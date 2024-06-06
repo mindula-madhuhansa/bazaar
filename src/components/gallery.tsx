@@ -43,9 +43,7 @@ export function Gallery({ images }: Props) {
       <div className="grow flex items-center relative p-4 pb-0">
         {activeImage && (
           <>
-            <div className="">
-              <UploadImageView image={activeImage} />
-            </div>
+            <UploadImageView image={activeImage} />
 
             <div className="absolute inset-6 flex justify-between">
               <button onClick={handleChangePreviousImage}>

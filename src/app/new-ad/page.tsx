@@ -5,7 +5,6 @@ import { redirect } from "next/navigation";
 import { UploadResponse } from "imagekit/dist/libs/interfaces";
 
 import { createAd } from "@/actions/adActions";
-
 import { SubmitButton } from "@/components/submit-button";
 import { GoogleMapArea } from "@/components/google-map-area";
 import { ImageUploadArea } from "@/components/image-upload-area";
