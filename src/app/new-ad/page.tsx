@@ -1,10 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { redirect } from "next/navigation";
 import { UploadResponse } from "imagekit/dist/libs/interfaces";
 
-import { defaultLocation } from "@/constants";
 import { createAd } from "@/actions/adActions";
 
 import { SubmitButton } from "@/components/submit-button";
@@ -14,7 +13,19 @@ import { ProductDetailsArea } from "@/components/product-details-area";
 
 export default function NewAdPage() {
   const [files, setFiles] = useState<UploadResponse[]>([]);
-  const [location, setLocation] = useState<PinLocation>(defaultLocation);
+  const [location, setLocation] = useState<PinLocation | null>(null);
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      (ev) => {
+        const { latitude, longitude } = ev.coords;
+        setLocation({ lat: latitude, lng: longitude });
+      },
+      (err) => {
+        console.error(err.message);
+      }
+    );
+  }, []);
 
   const handleSubmit = async (formData: FormData) => {
     formData.set("location", JSON.stringify(location));
@@ -32,7 +43,9 @@ export default function NewAdPage() {
       <div className="grow mt-4">
         <ImageUploadArea files={files} setFiles={setFiles} />
 
-        <GoogleMapArea location={location} setLocation={setLocation} />
+        {location && (
+          <GoogleMapArea location={location} setLocation={setLocation} />
+        )}
       </div>
 
       <div className="grow">

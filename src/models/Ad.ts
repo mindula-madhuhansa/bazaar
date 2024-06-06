@@ -34,4 +34,6 @@ const adSchema = new Schema<Ad>(
   }
 );
 
+adSchema.index({ location: "2dsphere" });
+
 export const AdModel = (models?.Ad as Model<Ad>) || model<Ad>("Ad", adSchema);

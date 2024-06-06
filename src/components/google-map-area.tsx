@@ -4,7 +4,7 @@ import { LocationPicker } from "@/components/location-picker";
 
 type Props = {
   location: PinLocation;
-  setLocation: React.Dispatch<React.SetStateAction<PinLocation>>;
+  setLocation: (location: PinLocation) => void;
 };
 
 export function GoogleMapArea({ location, setLocation }: Props) {

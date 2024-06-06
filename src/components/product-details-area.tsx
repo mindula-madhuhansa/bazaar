@@ -36,16 +36,12 @@ export function ProductDetailsArea() {
         <option value="selectCat" disabled>
           Select Category
         </option>
-        <option value="electronics">📱 Electronics</option>
-        <option value="fashion">👚 Fashion</option>
-        <option value="homeAppliances">🏠 Home Appliances</option>
-        <option value="beauty">💄 Beauty & Health</option>
-        <option value="toys">🧸 Toys & Games</option>
-        <option value="books">📚 Books & Media</option>
-        <option value="automotive">🚗 Automotive</option>
-        <option value="sports">🏏 Sports & Outdoors</option>
-        <option value="groceries">🛒 Groceries</option>
-        <option value="pets">🐶 Pets</option>
+
+        {categories.map((category) => (
+          <option key={category.value} value={category.value}>
+            {category.label}
+          </option>
+        ))}
       </select>
 
       <label htmlFor="contact">Contact Informations</label>

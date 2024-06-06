@@ -11,10 +11,7 @@ import {
   SmartphoneIcon,
 } from "lucide-react";
 
-export const defaultLocation = {
-  lat: 6.585323364828695,
-  lng: 79.9706797982489,
-};
+export const defaultRadius = 10000;
 
 export const categories = [
   {

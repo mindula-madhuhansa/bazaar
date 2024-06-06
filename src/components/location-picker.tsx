@@ -22,7 +22,7 @@ export function LocationPicker({ location, setLocation }: Props) {
     const map = new Map(mapRef.current as HTMLDivElement, {
       mapId: "map",
       center: location,
-      zoom: 12,
+      zoom: 10,
       mapTypeControl: false,
       streetViewControl: false,
     });
@@ -48,7 +48,7 @@ export function LocationPicker({ location, setLocation }: Props) {
 
   useEffect(() => {
     if (map && pin) {
-      map.setCenter(location);
+      map.setCenter(location as PinLocation);
       pin.position = location;
     }
   }, [location, map, pin]);
