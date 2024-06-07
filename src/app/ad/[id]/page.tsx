@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getServerSession } from "next-auth";
+import { PencilLineIcon } from "lucide-react";
 
 import { AdModel } from "@/models/Ad";
 import { authOptions } from "@/utils/authOptions";
@@ -8,7 +9,7 @@ import { formatCurrency } from "@/utils/formayCurrency";
 
 import { Gallery } from "@/components/gallery";
 import { LocationMap } from "@/components/location-map";
-import { PencilLineIcon, Trash2Icon } from "lucide-react";
+import { DeleteButton } from "@/components/delete-button";
 
 type Props = {
   params: {
@@ -40,13 +41,7 @@ export default async function SingleAdPage(args: Props) {
             <span>Edit</span>
           </Link>
 
-          <Link
-            href={""}
-            className="flex items-center gap-x-2 bg-red-500 hover:bg-red-500/90 text-white px-4 py-2 rounded-md"
-          >
-            <Trash2Icon className="size-4" />
-            <span>Delete</span>
-          </Link>
+          <DeleteButton id={adDoc._id} />
         </div>
       )}
 
