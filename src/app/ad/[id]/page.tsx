@@ -1,4 +1,6 @@
 import Link from "next/link";
+import mongoose from "mongoose";
+import { notFound } from "next/navigation";
 import { getServerSession } from "next-auth";
 import { PencilLineIcon } from "lucide-react";
 
@@ -21,13 +23,13 @@ type Props = {
 };
 
 export default async function SingleAdPage(args: Props) {
-  await connectToDB();
-  const adDoc = await AdModel.findById(args.params.id);
-  const session = await getServerSession(authOptions);
+  if (!mongoose.Types.ObjectId.isValid(args.params.id)) return notFound();
 
-  if (!adDoc) {
-    return "Not found!";
-  }
+  await connectToDB();
+  const session = await getServerSession(authOptions);
+  const adDoc = await AdModel.findById(args.params.id);
+
+  if (!adDoc) return notFound();
 
   return (
     <div className="max-w-7xl mx-auto p-4">
